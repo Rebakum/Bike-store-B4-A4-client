@@ -12,7 +12,7 @@ const MainLayout = () => {
         <Navber />
       </div>
       {/* Main content area*/}
-      <div className="flex-grow xl:px-20">
+      <div className="flex-grow xl:px-10">
         <Outlet />
       </div>
       {/* footer area */}

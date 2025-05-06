@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function BikeDesign() {
   return (
-    <section className="overflow-hidden bg-[#000] text-white container mx-auto opacity-80">
+    <section className="overflow-hidden xl:px-0 bg-[#000] text-white container mx-auto opacity-80">
       <div className="relative gap-5 px-10 py-10">
         <div className="relative w-[1200px]">
           {/* Image - background layer */}

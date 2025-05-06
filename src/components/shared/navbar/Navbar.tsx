@@ -80,8 +80,8 @@ const Navbar = () => {
       <section
         className={
           header
-            ? " fixed top-0 z-50 shadow-sm py-4 bgDark text-white w-full px-4 lg:px-20"
-            : " shadow-sm bg-white py-4 px-4 lg:px-20"
+            ? " fixed top-0 z-50 shadow-sm py-4 bgDark text-white w-full px-4 lg:px-10"
+            : " shadow-sm bg-white py-4 px-4 lg:px-10"
         }
       >
         <div className="container flex items-center justify-between px-4 mx-auto lg:px-0">
