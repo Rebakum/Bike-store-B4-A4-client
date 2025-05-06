@@ -1,0 +1,123 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Top 10 Bike Maintenance Tips",
+      "category": "Maintenance",
+      "description": "Learn how to take care of your bike and extend its life with these 10 practical maintenance tips.",
+      "tags": ["bike", "maintenance", "tips", "repair"],
+      "gallery": [
+        "/images/gallery/maintenance1.jpg",
+        "/images/gallery/maintenance2.jpg",
+        "/images/gallery/maintenance3.jpg"
+      ],
+      "author": {
+        "name": "Rebeka Sultana",
+        "avatar": "/images/users/rebeka.jpg",
+        "postedAt": "2025-05-01T10:30:00Z"
+      },
+      "comments": [
+        {
+          "id": 1,
+          "name": "Mahmud Hasan",
+          "avatar": "/images/users/mahmud.jpg",
+          "comment": "Very informative! Helped me a lot.",
+          "postedAt": "2025-05-02T09:00:00Z"
+        },
+        {
+          "id": 2,
+          "name": "Rima Akter",
+          "avatar": "/images/users/rima.jpg",
+          "comment": "Loved the gallery section. Great tips!",
+          "postedAt": "2025-05-03T14:45:00Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "How to Choose the Right Bike",
+      "category": "Buying Guide",
+      "description": "Choosing the right bike depends on your purpose, budget, and body type. Here’s a detailed guide.",
+      "tags": ["bike", "buying", "guide"],
+      "gallery": ["/images/gallery/buying1.jpg"],
+      "author": {
+        "name": "Tariq Aziz",
+        "avatar": "/images/users/tariq.jpg",
+        "postedAt": "2025-04-21T08:00:00Z"
+      },
+      "comments": []
+    },
+    {
+      "id": 3,
+      "title": "5 Best Biking Routes in Dhaka",
+      "category": "Travel",
+      "description": "Explore the best scenic and traffic-free biking routes inside Dhaka city.",
+      "tags": ["routes", "dhaka", "biking"],
+      "gallery": ["/images/gallery/dhaka1.jpg", "/images/gallery/dhaka2.jpg"],
+      "author": {
+        "name": "Sadia Rahman",
+        "avatar": "/images/users/sadia.jpg",
+        "postedAt": "2025-03-28T11:20:00Z"
+      },
+      "comments": [
+        {
+          "id": 1,
+          "name": "Ahsan Kabir",
+          "avatar": "/images/users/ahsan.jpg",
+          "comment": "I ride on Gulshan route regularly. Awesome!",
+          "postedAt": "2025-03-29T16:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Bike Safety Essentials for New Riders",
+      "category": "Safety",
+      "description": "Essential safety gear and habits every new rider must adopt to avoid accidents.",
+      "tags": ["safety", "beginners", "gear"],
+      "gallery": [],
+      "author": {
+        "name": "Rebeka Sultana",
+        "avatar": "/images/users/rebeka.jpg",
+        "postedAt": "2025-02-10T12:00:00Z"
+      },
+      "comments": []
+    },
+    {
+      "id": 5,
+      "title": "Budget Bikes Under 1 Lakh in Bangladesh",
+      "category": "Reviews",
+      "description": "List of top-performing and affordable bikes under 1 lakh Taka for the year 2025.",
+      "tags": ["budget", "bangladesh", "bikes"],
+      "gallery": ["/images/gallery/budget1.jpg", "/images/gallery/budget2.jpg"],
+      "author": {
+        "name": "Imran Hossain",
+        "avatar": "/images/users/imran.jpg",
+        "postedAt": "2025-01-15T09:00:00Z"
+      },
+      "comments": []
+    },
+    {
+      "id": 6,
+      "title": "Electric Bikes: Are They Worth It?",
+      "category": "Technology",
+      "description": "Electric bikes are gaining popularity. Here’s an in-depth analysis of pros, cons, and cost-benefits.",
+      "tags": ["electric", "technology", "eco"],
+      "gallery": ["/images/gallery/electric1.jpg"],
+      "author": {
+        "name": "Sabbir Ahmed",
+        "avatar": "/images/users/sabbir.jpg",
+        "postedAt": "2025-05-01T15:45:00Z"
+      },
+      "comments": [
+        {
+          "id": 1,
+          "name": "Rita Dey",
+          "avatar": "/images/users/rita.jpg",
+          "comment": "Very helpful. I was planning to buy one!",
+          "postedAt": "2025-05-01T17:30:00Z"
+        }
+      ]
+    }
+  ]
+}
