@@ -33,13 +33,13 @@ const SlideContent: React.FC<SlideContentProps> = ({
         <div className="flex flex-col items-center gap-4 mt-4 lg:flex-row">
           <button
             onClick={() => navigate("/bikes")}
-            className="inline-block px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700"
+            className="inline-block px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 border border-orange-500 rounded-lg shadow-md hover:bg-transparent"
           >
             Explore Product
           </button>
           <button
             onClick={() => navigate("/services")}
-            className="inline-block px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700"
+            className="inline-block px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-transparent border border-orange-500 rounded-lg shadow-md hover:bg-orange-500"
           >
             Our Services
           </button>

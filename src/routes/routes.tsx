@@ -23,6 +23,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 //import { Contact } from "lucide-react";
+import SearchResults from "@/components/shared/navbar/SearchResult";
 import Blogs from "@/pages/Blogs/Blogs";
 import Contact from "@/pages/Contact";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <CartPage />,
+        element: <SearchResults />,
       },
       {
         path: "/order",

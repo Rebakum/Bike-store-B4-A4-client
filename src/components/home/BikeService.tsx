@@ -11,9 +11,9 @@ const BikeService = () => {
           Professional Bike Services
         </h2>
         <div className="flex items-center justify-center my-3">
-          <div className="w-12 h-0.5 bg-red-700 mr-2"></div>
-          <div className="w-3 h-3 rotate-45 bg-red-700"></div>
-          <div className="w-12 h-0.5 bg-red-700 ml-2"></div>
+          <div className="w-12 h-0.5 bg-orange-500 mr-2"></div>
+          <div className="w-3 h-3 rotate-45 bg-orange-500"></div>
+          <div className="w-12 h-0.5 bg-orange-500 ml-2"></div>
         </div>
         <p className="max-w-2xl mx-auto mt-4 text-lg text-center text-gray-500">
           Premium bike maintenance, repairs, and customizations handled by
@@ -25,7 +25,7 @@ const BikeService = () => {
           <div className="w-full h-full space-y-5 lg:w-1/2">
             {services.map((item, idx) => (
               <div key={idx} className="flex items-start gap-4 ">
-                <span className="text-xl font-bold text-[#8E1616]">
+                <span className="text-xl font-bold text-orange-500">
                   {item.number}
                 </span>
                 <div>
@@ -38,7 +38,7 @@ const BikeService = () => {
             ))}
 
             <Link to="/bikes">
-              <button className=" flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700">
+              <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md hover:bg-orange-600">
                 Browse Our Bikes
                 <ArrowRight />
               </button>

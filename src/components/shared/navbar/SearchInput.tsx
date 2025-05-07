@@ -1,59 +1,46 @@
-import { Search, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
+import { useState } from "react";
+import { IoSearchSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const SearchInput = ({ onClose }: { onClose: () => void }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
+interface SearchInputProps {
+  onClose?: () => void;
+}
+
+const SearchInput = ({ onClose }: SearchInputProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  // Focus the input field when the component is mounted
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
-  // Debounce search input to limit API calls
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedQuery(searchQuery);
-    }, 500); // Adjust delay as needed (500ms here)
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [searchQuery]);
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (debouncedQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(debouncedQuery.trim())}`);
-      onClose();
+    if (searchTerm.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchTerm.trim())}`);
+      if (onClose) onClose(); // close after search
     }
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-12 bg-[#8E1616] mx-auto container p-12 z-[9999] flex flex-col items-center justify-center px-4">
-      {/* Close Button */}
-      <button
-        className="absolute text-gray-600 top-4 right-4 hover:text-black"
-        onClick={onClose}
-      >
-        <X className="w-6 h-6" />
-      </button>
-
-      {/* Search Form */}
-      <form onSubmit={handleSearch} className="relative w-full max-w-md">
+    <div className="flex items-center border-2 border-[#FF541F] rounded-full px-4 py-2 gap-2 bg-white">
+      <form onSubmit={handleSearch} className="flex items-center w-full gap-2">
         <input
-          ref={inputRef}
           type="text"
-          placeholder="Search by name or brand..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full py-2 pl-10 pr-4 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8E1616]"
+          placeholder="Search by name, model, or brand"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full text-sm text-gray-700 placeholder-gray-400 bg-transparent outline-none"
         />
-        <Search className="absolute top-2.5 left-3 text-gray-500 w-5 h-5" />
+        <button type="submit" className="text-xl text-orange-500">
+          <IoSearchSharp />
+        </button>
       </form>
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="ml-2 text-gray-400 hover:text-red-500"
+        >
+          <X size={16} />
+        </button>
+      )}
     </div>
   );
 };

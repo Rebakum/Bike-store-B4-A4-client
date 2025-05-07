@@ -40,11 +40,11 @@ export default function BikeDesign() {
             deals and get riding today.
           </p>
           <h3 className="text-2xl font-bold uppercase">
-            Now At <span className="text-3xl bg-[#8E1616] ">$1250</span>
+            Now At <span className="text-3xl bg-orange-500 ">$1250</span>
           </h3>
 
           <Link to="/bikes">
-            <button className=" flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700">
+            <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md  hover:bg-red-700">
               See More
               <ArrowRight />
             </button>

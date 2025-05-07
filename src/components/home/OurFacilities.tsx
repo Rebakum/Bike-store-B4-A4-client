@@ -17,7 +17,7 @@ const OurFacilities = () => {
             <h1 className="mb-2 text-4xl font-bold">Kids Bike</h1>
             <p className="mb-4">Close-out pricing on dozens of products</p>
             <Link to="/bikes">
-              <button className="px-6 py-3 uppercase text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700">
+              <button className="px-6 py-3 text-sm font-semibold text-white uppercase transition bg-orange-500 rounded-lg shadow-md hover:bg-orange-600">
                 Shop Now
               </button>
             </Link>
@@ -35,7 +35,7 @@ const OurFacilities = () => {
             <h1 className="mb-2 text-4xl font-bold">Accessories</h1>
             <p className="mb-4">Close-out pricing on dozens of products</p>
             <Link to="/bikes">
-              <button className="px-6 py-3 uppercase text-sm font-semibold text-white transition bg-[#8E1616] rounded-lg shadow-md hover:bg-red-700">
+              <button className="px-6 py-3 text-sm font-semibold text-white uppercase transition bg-orange-500 rounded-lg shadow-md hover:bg-orange-600">
                 Shop Now
               </button>
             </Link>
