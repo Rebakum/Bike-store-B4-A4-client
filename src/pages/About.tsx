@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import img8 from "../assets/Banner-image/image/bike- banner.8.jpg";
 import aboutImage2 from "../assets/image/bike-1.jpg";
 import aboutImage from "../assets/image/bike-23.jpg";
+import OurSpecialService from "./OurSpecialService";
 
 export default function About() {
   return (
@@ -12,12 +13,12 @@ export default function About() {
           <title>About - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <div className="container px-4 mx-auto">
-        <div className="relative rounded-lg h-60">
+      <div className="container px-4 mx-auto mt-20">
+        <div className="relative w-full h-full rounded-lg lg:h-60">
           <img
             src={img8}
             alt="bike- banner.8"
-            className="top-0 left-0 z-0 object-cover w-full rounded-lg absolate h-60"
+            className="top-0 left-0 z-0 object-cover w-full h-full rounded-lg absolate lg:h-60"
           />
           <div className="absolute top-0 left-0 z-10 flex flex-col items-start justify-start p-10 rounded-lg">
             <nav className="flex items-center space-x-2 text-sm text-gray-100">
@@ -128,6 +129,8 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <OurSpecialService />
     </div>
   );
 }

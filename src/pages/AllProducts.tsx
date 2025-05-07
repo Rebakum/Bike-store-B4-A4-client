@@ -68,12 +68,12 @@ export default function AllProducts() {
           <title>All Products - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <div className="container px-4 mx-auto md:px-0">
-        <div className="relative rounded-lg h-60">
+      <div className="container px-4 py-24 mx-auto md:px-0">
+        <div className="relative w-full h-full rounded-lg lg:h-60">
           <img
             src={img8}
             alt="bike- banner.8"
-            className="top-0 left-0 z-0 object-cover w-full rounded-lg absolate h-60"
+            className="top-0 left-0 z-0 object-cover w-full h-full rounded-lg absolate lg:h-60"
           />
           <div className="absolute top-0 left-0 z-10 flex flex-col items-start justify-start p-10 rounded-lg">
             <nav className="flex items-center space-x-2 text-sm text-gray-100">
@@ -90,11 +90,11 @@ export default function AllProducts() {
               <span> All Products</span>
             </nav>
 
-            <h1 className="mb-3 text-4xl font-bold uppercase text-start text-gray-50">
+            <h1 className="mb-3 font-bold uppercase lg:text-4xl text-start text-gray-50">
               All Products
             </h1>
             {/* Search and Filters */}
-            <div className="flex flex-col gap-4 bg-transparent md:flex-row">
+            <div className="grid grid-cols-1 gap-1 px-4 lg:gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               <input
                 type="text"
                 name="searchTerm"

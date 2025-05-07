@@ -4,12 +4,12 @@ import BlogList from "./BlogsList";
 
 const Blogs = () => {
   return (
-    <section className="container px-4 mx-auto mb-10">
-      <div className="relative rounded-lg h-60">
+    <section className="container px-4 pt-20 mx-auto">
+      <div className="relative w-full h-full rounded-lg lg:h-60">
         <img
           src={img8}
           alt="bike- banner.8"
-          className="top-0 left-0 z-0 object-cover w-full rounded-lg absolate h-60"
+          className="top-0 left-0 z-0 object-cover w-full h-full rounded-lg absolate lg:h-60"
         />
         <div className="absolute top-0 left-0 z-10 flex flex-col items-start justify-start p-10 rounded-lg">
           <nav className="flex items-center space-x-2 text-sm text-gray-100">

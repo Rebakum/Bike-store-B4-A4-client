@@ -20,9 +20,9 @@ const BlogList = () => {
   });
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className=" bg-gray-50">
       <div className="container mx-auto">
-        <h2 className="mb-10 text-3xl font-bold text-center text-secondary">
+        <h2 className="my-10 text-4xl font-bold text-gray-900 text-start">
           Latest Blog Posts
         </h2>
 

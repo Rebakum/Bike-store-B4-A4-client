@@ -129,7 +129,12 @@ const Navbar = () => {
 
           {/* Mobile Navbar */}
           <div className="flex items-center gap-2 lg:hidden">
-            <Search className="cursor-pointer" />
+            {!showSearch && (
+              <button onClick={() => setShowSearch(true)}>
+                <Search className="w-5 h-5 text-gray-600" />
+              </button>
+            )}
+            {showSearch && <SearchInput onClose={() => setShowSearch(false)} />}
             {CartIcon}
             {isUser ? (
               <ProfileDropdown user={isUser as TUser} />

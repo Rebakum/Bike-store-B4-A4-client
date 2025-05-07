@@ -86,12 +86,23 @@ export default function ContactFormPreview() {
           <h1 className="mb-3 text-4xl font-bold uppercase">Contact us</h1>
         </div>
       </div>
+      <div className="w-full h-[300px] rounded-md overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902654301801!2d90.3911964753072!3d23.750903089147105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b89443e1e19f%3A0x9a7b6c2e5869c16e!2sDhaka!5e0!3m2!1sen!2sbd!4v1681123456789!5m2!1sen!2sbd"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
 
       {/* Contact Info and Form */}
-      <div className="grid gap-10 md:grid-cols-2">
+      <div className="grid gap-10 mt-10 md:grid-cols-2">
         {/* Left - Contact Info */}
-        <div className="p-8 space-y-4 text-base rounded-md">
-          <h3 className="mb-2 text-xl font-semibold">Contact Information</h3>
+        <div className="space-y-4 text-base rounded-md ">
+          <h3 className="mb-10 text-4xl font-semibold">Contact Information</h3>
 
           <div className="space-y-2">
             <p className="flex items-center gap-2">
@@ -125,11 +136,6 @@ export default function ContactFormPreview() {
               <FaUserTie className="text-blue-400" />
               <strong>Management:</strong> admin@bikeShop25.com
             </p>
-          </div>
-
-          <div className="flex gap-4 mt-6">
-            <Button className="px-4 py-1 bg-black">Page</Button>
-            <Button className="px-4 py-1 bg-black">Group</Button>
           </div>
         </div>
 

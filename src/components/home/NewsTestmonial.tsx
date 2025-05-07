@@ -84,12 +84,12 @@ const NewsletterTestimonial = () => {
       </div>
 
       {/* Testimonial Section */}
-      <div className="relative container mx-auto h-[400px] z-10 rounded-lg overflow-hidden">
+      <div className="relative container mx-auto bg-black h-[400px] z-10 rounded-lg overflow-hidden">
         {/* Background Image */}
         <img
           src={img8}
           alt="Bike Banner"
-          className="absolute top-0 left-0 object-cover w-full h-full opacity-90"
+          className="absolute top-0 right-0 w-1/2 h-full opacity-20"
         />
 
         {/* Testimonial Content */}
