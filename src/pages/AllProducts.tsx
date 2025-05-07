@@ -94,7 +94,7 @@ export default function AllProducts() {
               All Products
             </h1>
             {/* Search and Filters */}
-            <div className="grid grid-cols-1 gap-1 px-4 lg:gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-1 lg:gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               <input
                 type="text"
                 name="searchTerm"
