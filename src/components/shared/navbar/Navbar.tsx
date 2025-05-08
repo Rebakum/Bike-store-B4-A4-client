@@ -81,7 +81,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex">
-              <ul className="flex gap-6 text-base font-bold">
+              <ul className="flex gap-4 font-semibold ">
                 {menuList.map((item) => (
                   <li key={item.id} className="relative group">
                     <Link to={item.link}>
@@ -128,7 +128,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navbar */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-6 lg:hidden">
             {!showSearch && (
               <button onClick={() => setShowSearch(true)}>
                 <Search className="w-5 h-5 text-gray-600" />
@@ -152,24 +152,24 @@ const Navbar = () => {
               <SheetTrigger asChild>
                 <Button
                   size="icon"
-                  className={`text-xl ${
+                  className={`text-3xl ${
                     header
                       ? "text-white hover:bg-white hover:text-black"
                       : "bg-transparent text-black hover:text-white"
                   }`}
                 >
-                  <Menu className="size-4" />
+                  <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <img className="w-56" src={brand} alt="Bike Shop Logo" />
+                    <img className="w-40" src={brand} alt="Bike Shop Logo" />
                   </SheetTitle>
                 </SheetHeader>
 
                 <div className="flex flex-col gap-6 mt-6">
-                  <ul className="flex flex-col gap-6 font-semibold">
+                  <ul className="flex flex-col gap-6 font-semibold ">
                     {menuList.map((item) => (
                       <li key={item.id}>
                         <Link to={item.link}>
