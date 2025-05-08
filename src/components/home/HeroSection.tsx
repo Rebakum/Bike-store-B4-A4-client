@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gray-100">
+    <section className="relative ">
       <div className="container flex flex-col-reverse items-center justify-between px-4 py-20 mx-auto lg:flex-row">
         {/* Left Content */}
         <div className="w-full space-y-6 text-center lg:w-1/2 lg:text-left">

@@ -11,7 +11,7 @@ export default function BikeDesign() {
           <img
             src={bikeImage24}
             alt="MT76 Featured Bike"
-            className="relative z-10 w-full "
+            className="relative z-10 hidden w-full opacity-90 lg:block "
           />
 
           {/* Title over image */}
@@ -44,7 +44,7 @@ export default function BikeDesign() {
           </h3>
 
           <Link to="/bikes">
-            <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md  hover:bg-red-700">
+            <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md hover:bg-red-700">
               See More
               <ArrowRight />
             </button>

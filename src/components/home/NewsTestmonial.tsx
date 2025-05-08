@@ -6,8 +6,9 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const NewsletterTestimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const currentTestimonial = testimonials[currentIndex];
   const [email, setEmail] = useState("");
+
+  const currentTestimonial = testimonials[currentIndex];
 
   const handlePrev = () => {
     setCurrentIndex((prev) =>
@@ -25,54 +26,60 @@ const NewsletterTestimonial = () => {
     const interval = setInterval(() => {
       handleNext();
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!email) {
       alert("Please enter a valid email.");
       return;
     }
-
-    // Example: Send to console or API
     console.log("Subscribed email:", email);
     setEmail("");
     alert("Thank you for subscribing!");
   };
 
   return (
-    <section className="relative top-0 left-0 z-0 w-full my-16 ">
+    <section className="container relative w-full mx-auto my-20 ">
+      {/* Helmet image - only visible on lg+ */}
+      <img
+        src={safetyHelment1}
+        alt="Cyclist"
+        className="hidden lg:block absolute left-0 top-0 w-[300px] xl:w-[450px] z-[50] opacity-90"
+      />
+
       {/* Newsletter Section */}
-      <div className="pb-16 text-center bg-white ">
-        <h4 className="mb-2 text-sm tracking-wide text-orange-500 uppercase">
+      <div className="py-12 text-center bg-white rounded-lg shadow-md">
+        <h4 className="mb-2 text-sm font-semibold tracking-wider text-orange-500 uppercase">
           Newsletter
         </h4>
-        <h2 className="text-3xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl">
-          Subscribe Today And Get <br /> 10% Off Your Order
+        <h2 className="text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
+          Subscribe Today And Get <br className="hidden sm:block" /> 10% Off
+          Your Order
         </h2>
-        <div className="flex items-center justify-center my-3">
+
+        <div className="flex items-center justify-center my-4">
           <div className="w-12 h-0.5 bg-orange-500 mr-2"></div>
           <div className="w-3 h-3 rotate-45 bg-orange-500"></div>
           <div className="w-12 h-0.5 bg-orange-500 ml-2"></div>
         </div>
-        <p className="max-w-2xl mx-auto mt-4 text-lg text-center text-gray-500">
+
+        <p className="max-w-xl mx-auto mt-4 text-base text-gray-500 md:text-lg">
           Premium bike maintenance, repairs, and customizations handled by
           experienced mechanics — built for riders who expect the best.
         </p>
-        {/* Subscribe section */}
+
         <form
           onSubmit={handleSubscribe}
-          className="flex flex-wrap items-center justify-center gap-2 mt-10"
+          className="flex flex-col items-center justify-center gap-4 mt-8 sm:flex-row"
         >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter Email Address"
-            className="px-4 py-2 border border-gray-300 rounded-md w-72"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md sm:w-72 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
           <button
             type="submit"
@@ -83,50 +90,41 @@ const NewsletterTestimonial = () => {
         </form>
       </div>
 
-      {/* Testimonial Section */}
-      <div className="relative hidden lg:inline-block container mx-auto bg-black h-[400px] z-10 rounded-lg overflow-hidden">
+      {/* Testimonial Section - only on lg+ */}
+      <div className="relative hidden lg:flex items-center justify-center mt-16 bg-black h-[400px] rounded-lg overflow-hidden shadow-lg">
         {/* Background Image */}
         <img
           src={img8}
           alt="Bike Banner"
-          className="absolute top-0 right-0 w-1/2 h-full opacity-20"
+          className="absolute top-0 right-0 object-cover w-1/2 h-full opacity-20"
         />
 
         {/* Testimonial Content */}
-        <div className="absolute z-20 px-4 text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-          <div className="z-10 max-w-2xl">
-            <FaQuoteLeft className="mx-auto text-4xl text-orange-500" />
-            <p className="mt-4 text-lg font-light leading-relaxed transition-opacity duration-500 opacity-100">
-              “{currentTestimonial.quote}”
-            </p>
-            <p className="mt-2 text-sm font-medium text-gray-300">
-              - {currentTestimonial.name}
-            </p>
+        <div className="relative z-20 max-w-2xl px-6 text-center text-white">
+          <FaQuoteLeft className="mx-auto text-4xl text-orange-500" />
+          <p className="mt-4 text-lg font-light leading-relaxed">
+            “{currentTestimonial.quote}”
+          </p>
+          <p className="mt-2 text-sm font-medium text-gray-300">
+            - {currentTestimonial.name}
+          </p>
 
-            <div className="flex justify-center gap-6 mt-6">
-              <button
-                onClick={handlePrev}
-                className="transition hover:text-orange-500"
-              >
-                <IoIosArrowBack size={24} />
-              </button>
-              <button
-                onClick={handleNext}
-                className="transition hover:text-orange-500"
-              >
-                <IoIosArrowForward size={24} />
-              </button>
-            </div>
+          <div className="flex justify-center gap-6 mt-6">
+            <button
+              onClick={handlePrev}
+              className="transition hover:text-orange-500"
+            >
+              <IoIosArrowBack size={24} />
+            </button>
+            <button
+              onClick={handleNext}
+              className="transition hover:text-orange-500"
+            >
+              <IoIosArrowForward size={24} />
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Optional helmet image positioned on top */}
-      <img
-        src={safetyHelment1}
-        alt="Cyclist"
-        className="absolute left-0 top-0 w-[450px]  z-[100] opacity-90 "
-      />
     </section>
   );
 };
