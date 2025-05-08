@@ -1,21 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const OrderResponse = () => {
   const [searchParams] = useSearchParams();
   const invoice = searchParams.get("order_id");
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (invoice) {
-      const timeout = setTimeout(() => {
-        navigate("/user/dashboard/viewOrders");
-      }, 3000); // 3 seconds
-
-      return () => clearTimeout(timeout);
-    }
-  }, [invoice, navigate]);
 
   return (
     <div className="flex items-center justify-center min-h-[75vh] p-6">
@@ -29,8 +17,8 @@ const OrderResponse = () => {
         </div>
 
         <Link to="/user/dashboard/viewOrders">
-          <Button className="w-full py-3 font-semibold text-white transition duration-300 rounded-lg bg-gradient-to-r from-[#ff8a05] via-[#ff5478] to-[#ff00c6]">
-            Go to Orders
+          <Button className="w-full py-3 font-semibold text-white transition duration-300 rounded-lg">
+            View My Orders
           </Button>
         </Link>
       </div>
