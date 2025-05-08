@@ -1,6 +1,7 @@
 import Banner from "@/components/home/Banner";
 import BikeDesign from "@/components/home/BikeDesign";
 import BikeService from "@/components/home/BikeService";
+import HeroSection from "@/components/home/HeroSection";
 import NewProducts from "@/components/home/NewProducts";
 import NewsletterTestimonial from "@/components/home/NewsTestmonial";
 import OurFacilityFeatures from "@/components/home/OurFacilityFeatures";
@@ -19,6 +20,7 @@ const Home = () => {
       </div>
       <div className="">
         <Banner />
+        <HeroSection />
 
         <OurFacilityFeatures />
         <BikeDesign />
@@ -45,7 +47,7 @@ const Home = () => {
           <NewProducts />
           <div className="flex items-center justify-center ">
             <Link to="/bikes">
-              <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md  hover:orange-600">
+              <button className="flex px-6 py-3 mt-6 text-sm font-semibold text-white transition bg-orange-500 rounded-lg shadow-md hover:orange-600">
                 VIEW ALL
                 <ArrowRight />
               </button>
