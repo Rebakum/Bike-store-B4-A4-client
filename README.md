@@ -1,181 +1,126 @@
 # 🚴‍♂️ Bike Shop Application
 
-A full-stack Bike Shop web application with role-based authentication, dynamic product management, secure payments, and a responsive user interface.
+A **full-stack e-commerce platform** for bike enthusiasts. This app includes role-based authentication, dynamic product management, SurjoPay payment integration, order tracking, and a responsive, user-friendly interface.
 
 ---
 
----
+## 🔗 Live Demo
 
-## 🔥 Live Demo
-
-- banckend server : https://bike-store-b4-a4.vercel.app/
-- client server : https://bike-store-b4-a4-frontend.vercel.app/
+- 🌐 Frontend: [bike-store-b4-a4-client.vercel.app](https://bike-store-b4-a4-client.vercel.app/)
+- 🔌 Backend: [bike-store-b4-a4-server.vercel.app](https://bike-store-b4-a4-server.vercel.app/)
 
 ---
 
-## 🚀 Project Overview & Objective
+## 🎯 Project Overview
 
-This project aims to create a feature-rich e-commerce platform for buying and managing bikes. The application includes both **public** and **private routes**, **role-based dashboards**, and **SurjoPay payment integration**. It ensures a seamless shopping experience with authentication, filters, search, and detailed product views.
+The Bike Shop application is designed to offer a complete shopping experience with:
 
----
-
-## 🔑 Main Functionalities (45 Marks)
-
-### ✅ 1. User Registration & Authentication (Role-Based)
-
-- **Secure Registration & Login**
-
-  - Users can register using name, email, and password.
-  - Default role: `customer`. (Admins must be assigned manually.)
-  - Passwords are securely hashed before storing in the database.
-
-- **JWT Authentication**
-
-  - JWT token is generated on login and stored in **localStorage**.
-  - Token is used for secure route access.
-
-- **Logout**
-  - Removes the token from localStorage and redirects to login.
+- 🔐 Secure login/registration with role-based access
+- 🛍 Product listing, search, filters, and details
+- 💳 Checkout system with SurjoPay integration
+- 🧑‍💼 Dashboards for admin and customers
+- 🚚 Order management and tracking
 
 ---
 
-### ✅ 2. Public Routes
+## 🚀 Core Features 
 
-- **Home Page**
+### 🧾 1. User Registration & Authentication
 
-  - Includes Navbar, Banner, Featured Products (max 6), extra section (e.g., testimonials), and a footer.
+- Role-based login system (Customer by default, Admin manually set)
+- JWT-based secure route access
+- Passwords hashed using bcrypt
+- Logout clears token and redirects to login
 
-- **All Products Page**
+### 🌐 2. Public Pages
 
-  - **Search & Filter** by brand, category, price range, and availability.
-  - Dynamically updated product list with product cards.
-  - “View Details” button redirects to the product details page.
+- **Home Page**: Hero banner, featured bikes, testimonials, footer
+- **All Products**:
+  - Filter by brand, category, price, and availability
+  - Keyword-based search
+- **Product Details**: Info, price, description, "Buy Now" button
+- **About Page**: Shop mission and story
 
-- **Product Details Page**
+### 🔒 3. Private Pages
 
-  - Displays detailed product information with a "Buy Now" button.
-
-- **About Page**
-  - Informative content about the shop and its mission.
-
----
-
-### ✅ 3. Private Routes
-
-- **Checkout Page**
-
-  - Users can place orders with validated stock.
-  - Includes order form with product details, user info, price, and payment method.
-  - Integrates **SurjoPay** for secure transactions.
-
-- **Dashboard (Role-Based Access)**
-  - **Admin Dashboard**
-    - Manage Users (deactivate), Products (CRUD), and Orders (CRUD).
-  - **User Dashboard**
-    - View order history, manage profile, and update password (with current password verification).
+- **Checkout Page**:
+  - Stock validation
+  - SurjoPay payment integration
+- **User Dashboard**:
+  - Order history
+  - Profile management
+  - Password update with current verification
+- **Admin Dashboard**:
+  - Manage Users (deactivate)
+  - Manage Products (CRUD)
+  - Manage Orders (CRUD)
 
 ---
 
-## 🎨 UI/UX Design (15 Marks)
+## 🎨 UI/UX Design 
 
-- **Responsive Design**
-
-  - Mobile-first layout with optimized typography and alignment.
-
-- **Error Handling**
-
-  - User-friendly messages for login failures, duplicate registration, out-of-stock products, etc.
-
-- **Loading States**
-
-  - Show spinners or loaders during API calls (login, fetching data, etc.).
-
-- **Toasts/Notifications**
-  - Feedback for key actions like login success, order placement, and errors.
+- Fully responsive (mobile-first design)
+- Custom loading states for API calls
+- User-friendly error messages
+- Toasts for login success, orders, and errors
 
 ---
 
-## 🌟 Recommended Functionalities (Bonus)
+## 🌟 Bonus Features
 
-### 🚚 Track Order Section
+### 📦 Order Tracking
 
-**User Side**
+#### ➤ User Dashboard:
+- Track order status: Pending → Processing → Shipped → Delivered
+- ETA and progress bar
 
-- Track status of each order: Pending → Processing → Shipped → Delivered.
-- Dedicated “Track My Order” page in the user dashboard with:
-  - Order ID, Product Info, Delivery ETA, and Status Progress Bar.
-
-**Admin Side**
-
-- Ability to update order status via dropdown.
-- Option to provide an estimated delivery date.
+#### ➤ Admin Dashboard:
+- Update order status via dropdown
+- Set delivery date and timeline
 
 ---
 
-## 🧩 Backend Requirements
+## 🛠 Backend Architecture
 
-- **Database**: MongoDB
+- MongoDB Atlas for data storage
+- Express.js APIs for user, product, and order management
+- SurjoPay for secure payment gateway integration
 
-### 🔐 Authentication
+### 🧪 Key Capabilities
 
-- Secure registration, login, JWT generation, logout.
-- Hash passwords and manage user sessions securely.
-
-### 📦 Product Management
-
-- CRUD functionality for bike products.
-
-### 📑 Order Management
-
-- CRUD for orders with validation (stock check).
-- Supports order tracking and dynamic status updates.
-
-### 💳 Payment Integration
-
-- SurjoPay integration for checkout process.
-
-### ⚙️ Error Handling & Optimization
-
-- Consistent API error responses.
-- Efficient pagination and filtering for performance on large datasets.
+- Authentication with JWT and bcrypt
+- Middleware for route protection
+- Paginated & filterable API endpoints
+- Error handling with consistent messages
 
 ---
 
-## 🔁 Additional Features
+## 🧩 Tech Stack
 
-- Backend supports:
-  - **Pagination** for product and order listing.
-  - **Authentication Middleware** for protected routes.
-- Clean and optimized code with proper folder structure (controllers, routes, services, interfaces, etc.).
+### Frontend
 
----
+- React.js
+- Tailwind CSS
+- React Router
+- Axios
+- React Query
+- AOS (Animations)
 
-## 📂 Tech Stack
+### Backend
 
-- **Frontend**: React, Tailwind CSS, React Router, Axios, React Query, AOS
-- **Backend**: Node.js, Express.js, MongoDB, Mongoose, JWT, bcrypt
-- **Payment**: SurjoPay Integration
-- **Deployment**: Vercel (frontend), Render/Heroku (backend), MongoDB Atlas (database)
-
----
-
-## 📌 Setup Instructions
-
-1. **Clone the Repo**  
-   `git clone https://github.com/Rebakum/Bike-store-B4-A4-frontend.git`
-
-2. **Install Dependencies**
-   `npm install`
-3. **Environment Variables**  
-   Add `.env` <br>
-   <pre>VITE_REACT_APP_SERVER_URI=https://bike-store-b4-a4.vercel.app/api</pre>
-
-4. **Run the Application**
-
-- Frontend: `npm run dev`
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT & bcrypt
+- SurjoPay API
 
 ---
 
-## 📄 License
+## 📁 Project Setup
 
-This project is open-source and available under the [MIT License](LICENSE).
+### 🖥 Client
+
+```bash
+git clone https://github.com/Rebakum/Bike-store-B4-A4-client.git
+cd Bike-store-B4-A4-client
+npm install
