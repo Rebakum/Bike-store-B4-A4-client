@@ -8,6 +8,13 @@ A **full-stack e-commerce platform** for bike enthusiasts. This app includes rol
 
 - 🌐 Frontend: [bike-store-b4-a4-client.vercel.app](https://bike-store-b4-a4-client.vercel.app/)
 - 🔌 Backend: [bike-store-b4-a4-server.vercel.app](https://bike-store-b4-a4-server.vercel.app/)
+## Admin:
+-  email: rebakpi@gmail.com
+- password: 123456
+## User:
+- email: tohmina@gmail.com
+- password: 123456
+
 
 ---
 
