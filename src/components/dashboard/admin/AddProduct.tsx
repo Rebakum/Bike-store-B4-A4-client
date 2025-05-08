@@ -85,11 +85,8 @@ const AddProduct = () => {
       formData.append("upload_preset", "bikeStore"); // Replace with your Cloudinary preset
 
       const response = await fetch(
-        "https://api.cloudinary.com/v1_1/dmygjxzsg/image/upload",
-        {
-          method: "POST",
-          body: formData,
-        }
+        "https://api.cloudinary.com/v1_1/dw9zuuylj/image/upload",
+        { method: "POST", body: formData }
       );
 
       const result = await response.json();

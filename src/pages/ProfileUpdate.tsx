@@ -11,6 +11,7 @@ import {
 } from "@/redux/features/auth/authApi";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const ProfileUpdate = () => {
@@ -19,6 +20,7 @@ const ProfileUpdate = () => {
   const [updatePassword] = useUpdatePasswordMutation();
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
+  const navigate = useNavigate();
 
   const [profile, setProfile] = useState({
     name: "",
@@ -62,16 +64,16 @@ const ProfileUpdate = () => {
   };
 
   const handleUpdateProfile = async () => {
-    if (
-      !profile.name.trim() ||
-      !profile.phone.trim() ||
-      !profile.address.trim()
-    ) {
-      return toast.error("Fields cannot be empty!");
-    }
-    const toastId = toast.loading("Updating profile...");
-    let imageUrl = profile.profileImage;
+    const { name, phone, address, profileImage } = profile;
 
+    if (!name.trim() || !phone.trim() || !address.trim()) {
+      return toast.error("All fields are required!");
+    }
+
+    const toastId = toast.loading("Updating profile...");
+    let imageUrl = profileImage;
+
+    // Handle image upload
     if (image) {
       const formData = new FormData();
       formData.append("file", image);
@@ -79,24 +81,40 @@ const ProfileUpdate = () => {
 
       try {
         const response = await fetch(
-          "https://api.cloudinary.com/v1_1/dmygjxzsg/image/upload",
-          { method: "POST", body: formData }
+          "https://api.cloudinary.com/v1_1/dw9zuuylj/image/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
         );
         const result = await response.json();
         if (!result.secure_url) throw new Error("Image upload failed");
         imageUrl = result.secure_url;
       } catch (error) {
-        toast.error("Failed to upload image");
+        toast.error("Image upload failed. Please try again.");
+        toast.dismiss(toastId);
         return;
       }
     }
 
-    const res = await updateProfile({ ...profile, profileImage: imageUrl });
-    if (res?.data?.success) {
-      toast.success("Profile updated successfully", { id: toastId });
-      setIsEditingProfile(false);
-    } else {
-      toast.error("Failed to update profile", { id: toastId });
+    try {
+      const res = await updateProfile({
+        ...profile,
+        profileImage: imageUrl,
+      }).unwrap();
+
+      if (res?.success) {
+        toast.success("Profile updated successfully!", { id: toastId });
+        setIsEditingProfile(false);
+        navigate("/admin/dashboard");
+      } else {
+        toast.error("Failed to update profile. Please try again.", {
+          id: toastId,
+        });
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      toast.error(err?.data?.message || "An error occurred.", { id: toastId });
     }
   };
 
@@ -214,8 +232,12 @@ const ProfileUpdate = () => {
           )} */}
 
           {isEditingProfile ? (
-            <div className="flex gap-4 mt-4">
-              <Button variant="outline" onClick={handleUpdateProfile}>
+            <div className="flex gap-4 mt-4 ">
+              <Button
+                className="bg-green-500 border hover:border-green-500"
+                variant="outline"
+                onClick={handleUpdateProfile}
+              >
                 Save Changes
               </Button>
               <Button variant="destructive" onClick={handleCancelProfileEdit}>
@@ -224,7 +246,7 @@ const ProfileUpdate = () => {
             </div>
           ) : (
             <Button
-              className="mt-4"
+              className="mt-4 bg-orange-500 border hover:border-orange-500"
               variant="outline"
               onClick={() => setIsEditingProfile(true)}
             >
@@ -260,7 +282,11 @@ const ProfileUpdate = () => {
 
           {isEditingPassword ? (
             <div className="flex gap-4 mt-4">
-              <Button variant="outline" onClick={handleSavePassword}>
+              <Button
+                className="bg-green-500 border hover:border-green-500"
+                variant="outline"
+                onClick={handleSavePassword}
+              >
                 Save Password
               </Button>
               <Button variant="destructive" onClick={handleCancelPasswordEdit}>
@@ -269,7 +295,7 @@ const ProfileUpdate = () => {
             </div>
           ) : (
             <Button
-              className="mt-4"
+              className="mt-4 bg-orange-500 border hover:border-orange-500"
               variant="outline"
               onClick={() => setIsEditingPassword(true)}
             >

@@ -11,7 +11,7 @@ import {
 } from "@/redux/features/order/orderApi";
 import { useAllProductsQuery } from "@/redux/features/products/productApi";
 import { Helmet } from "react-helmet-async";
-import { FaBox, FaUsers, FaShoppingCart, FaDollarSign } from "react-icons/fa";
+import { FaBox, FaDollarSign, FaShoppingCart, FaUsers } from "react-icons/fa";
 
 const AdminDashboardIndex = () => {
   const { isLoading: productLoading, data: productData } =
@@ -23,20 +23,20 @@ const AdminDashboardIndex = () => {
     useRevenueQuery(undefined);
 
   return (
-    <div className="p-6">
+    <div className="">
       {/* title */}
       <div className="">
         <Helmet>
           <title>DashBoard - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <h1 className="text-2xl font-bold mb-4">Dashboard Overview</h1>
+      <h1 className="mb-2 text-2xl font-bold ">Dashboard Overview</h1>
 
       {/* dashboard Status */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 !text-base">
         {productLoading || orderLoading || revenueLoading || userLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
-            <Skeleton key={index} className="h-32 w-full rounded-lg" />
+            <Skeleton key={index} className="w-full h-32 rounded-lg" />
           ))
         ) : (
           <>
@@ -72,9 +72,9 @@ const AdminDashboardIndex = () => {
 
       <div className="">
         {/* title */}
-        <h2 className="text-3xl font-bold capitalize py-8">pogress report</h2>
+        <h2 className="py-8 text-3xl font-bold capitalize">pogress report</h2>
         {/* content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <VisitorGraph />
           <OrderStatusChart />
         </div>
@@ -100,8 +100,8 @@ const StatsCard = ({
   value: string | number;
 }) => {
   return (
-    <Card className="shadow-md border rounded-xl flex flex-col items-center p-4  py-5 text-center">
-      <div className="text-4xl text-orange-600 mb-2">{icon}</div>
+    <Card className="flex flex-col items-center p-4 py-5 text-center border shadow-md rounded-xl">
+      <div className="mb-2 text-4xl text-orange-600">{icon}</div>
       <CardHeader>
         <CardTitle className="text-3xl font-semibold">{title}</CardTitle>
       </CardHeader>

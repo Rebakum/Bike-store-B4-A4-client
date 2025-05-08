@@ -84,7 +84,7 @@ const NewsletterTestimonial = () => {
       </div>
 
       {/* Testimonial Section */}
-      <div className="relative container mx-auto bg-black h-[400px] z-10 rounded-lg overflow-hidden">
+      <div className="relative hidden lg:inline-block container mx-auto bg-black h-[400px] z-10 rounded-lg overflow-hidden">
         {/* Background Image */}
         <img
           src={img8}
@@ -125,7 +125,7 @@ const NewsletterTestimonial = () => {
       <img
         src={safetyHelment1}
         alt="Cyclist"
-        className="absolute left-0 top-0 w-[450px]  z-[100] opacity-90"
+        className="absolute left-0 top-0 w-[450px]  z-[100] opacity-90 "
       />
     </section>
   );

@@ -30,17 +30,16 @@ import {
 } from "@/redux/features/products/productApi";
 import { IBikeResponse } from "@/types/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Label } from "@radix-ui/react-dropdown-menu";
+import { Label } from "@radix-ui/react-label";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "sonner";
 import { z } from "zod";
 
-// Define validation schema using zod
 const formSchema = z.object({
   name: z.string().min(1, "Name is required."),
-  image: z.string().min(1, "Image is required."),
+  image: z.string().optional(), // Not validating required, as file is handled separately
   description: z.string().min(1, "Description is required."),
   brand: z.string().min(1, "Brand is required."),
   price: z.number().min(1, "Price cannot be 0."),
@@ -56,8 +55,11 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
   const [deleteProduct] = useDeleteProductMutation();
   const [open, setOpen] = useState(false);
 
+  const [image, setImage] = useState<File | null>(null);
+  const [preview, setPreview] = useState(product.image || "");
+
   const form = useForm({
-    resolver: zodResolver(formSchema), // Apply validation schema
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       image: "",
@@ -65,15 +67,17 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
       brand: "",
       price: 0,
       quantity: 0,
-      category: "",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      category: "" as any,
       model: "",
     },
   });
 
   const { reset } = form;
-  const [image, setImage] = useState<File | null>(null);
+
   const handleImageChange = (file: File) => {
     setImage(file);
+    setPreview(URL.createObjectURL(file));
   };
 
   useEffect(() => {
@@ -87,54 +91,63 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
       category: product.category || "",
       model: product.model || "",
     });
+    setPreview(product.image);
   }, [product, reset]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.loading("Updating product...");
+
     try {
       let imageUrl = data?.image;
+
       if (image) {
         const formData = new FormData();
         formData.append("file", image);
-        formData.append("upload_preset", "bikeStore");
+        formData.append("upload_preset", "bikeStore"); // 🔒 Make sure this preset exists
 
-        try {
-          const response = await fetch(
-            "https://api.cloudinary.com/v1_1/dmygjxzsg/image/upload",
-            { method: "POST", body: formData }
-          );
-          const result = await response.json();
-          if (!result.secure_url) throw new Error("Image upload failed");
-          imageUrl = result.secure_url;
-        } catch (error) {
-          toast.error("Failed to upload image");
-          return;
+        const response = await fetch(
+          "https://api.cloudinary.com/v1_1/dw9zuuylj/image/upload",
+          { method: "POST", body: formData }
+        );
+        const result = await response.json();
+
+        if (!result.secure_url) {
+          throw new Error("Image upload failed");
         }
+
+        imageUrl = result.secure_url;
       }
-      const updateData = { ...data, image: imageUrl };
-      const res = await updateProduct({ data: updateData, id: product._id });
+
+      const updatedProduct = { ...data, image: imageUrl };
+
+      const res = await updateProduct({
+        data: updatedProduct,
+        id: product._id,
+      });
 
       if ("error" in res) {
         toast.error("Something went wrong", { id: toastId });
       } else {
         toast.success("Product updated successfully!", { id: toastId });
         reset();
+        setImage(null);
         setOpen(false);
       }
     } catch (error) {
       toast.error("Failed to update product.");
     }
   };
+
   const handleDeleteProduct = async (id: string) => {
     const toastId = toast.loading("Deleting...");
     try {
       const res = await deleteProduct(id);
-      if (res?.error) {
+      if ("error" in res) {
         toast.error("Something went wrong...", { id: toastId });
       } else {
         toast.success("Deleted Product...", { id: toastId });
       }
-    } catch (error) {
+    } catch {
       toast.error("Delete Failed...", { id: toastId });
     }
   };
@@ -144,7 +157,7 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div onClick={() => setOpen(!open)}>
-            <FaEdit className="text-black cursor-pointer  mx-auto hover:scale-[1.15] w-4 h-4" />
+            <FaEdit className="text-black cursor-pointer mx-auto hover:scale-[1.15] w-4 h-4" />
           </div>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -162,25 +175,22 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
                 control={form.control}
               />
 
-              {/* <CustomInputField
-                name="image"
-                label="Product Image Link"
-                placeholder="Enter image link"
-                type="text"
-                control={form.control}
-              /> */}
-              {/* image upload  */}
-              <Label className="mt-2">Product Image</Label>
+              <Label>Product Image</Label>
               <Input
                 type="file"
                 accept="image/*"
                 onChange={(e) => {
                   const file = e.target.files?.[0];
-                  if (file) {
-                    handleImageChange(file);
-                  }
+                  if (file) handleImageChange(file);
                 }}
               />
+              {preview && (
+                <img
+                  src={preview}
+                  alt="Preview"
+                  className="object-cover w-32 h-24 rounded"
+                />
+              )}
 
               <FormField
                 control={form.control}
@@ -307,9 +317,10 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
           </Form>
         </DialogContent>
       </Dialog>
+
       <FaTrash
         onClick={() => handleDeleteProduct(product._id)}
-        className="text-red-600  cursor-pointer  mx-auto hover:scale-[1.15] w-4 h-4"
+        className="text-red-600 cursor-pointer mx-auto hover:scale-[1.15] w-4 h-4"
       />
     </div>
   );
