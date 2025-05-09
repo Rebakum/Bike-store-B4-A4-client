@@ -153,19 +153,19 @@ const EditProductDetails = ({ product }: { product: IBikeResponse }) => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="container flex items-center gap-2 py-20 mx-auto">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div onClick={() => setOpen(!open)}>
             <FaEdit className="text-black cursor-pointer mx-auto hover:scale-[1.15] w-4 h-4" />
           </div>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="">
           <DialogTitle className="sr-only">Edit Product</DialogTitle>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full max-w-md mx-auto space-y-4"
+              className="w-full h-[500px] mx-auto overflow-y-auto space-y-2"
             >
               <CustomInputField
                 name="name"

@@ -5,6 +5,7 @@ import bikeimg21 from "@/assets/image/bike-21.jpg";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import img8 from "../assets/Banner-image/image/bike- banner.8.jpg";
+import FAQPage from "./FAQPage";
 
 export default function Services() {
   return (
@@ -15,11 +16,11 @@ export default function Services() {
       </Helmet>
 
       {/* Header */}
-      <div className="relative rounded-lg h-60">
+      <div className="relative h-60">
         <img
           src={img8}
           alt="bike-banner"
-          className="absolute top-0 left-0 z-0 object-cover w-full rounded-lg h-60"
+          className="absolute top-0 left-0 z-0 object-cover w-full h-60"
         />
         <div className="absolute top-0 left-0 z-10 flex flex-col items-start justify-start p-10 rounded-lg">
           <nav className="flex items-center space-x-2 text-sm text-gray-100">
@@ -43,7 +44,7 @@ export default function Services() {
       </div>
 
       {/* Services Grid (moved outside of header) */}
-      <div className="grid grid-cols-1 gap-4 mt-10 lg:grid-cols-2 ">
+      <div className="grid grid-cols-1 gap-4 px-10 mt-10 lg:grid-cols-2 ">
         {services.map((service, index) => (
           <div
             key={index}
@@ -69,6 +70,7 @@ export default function Services() {
           </div>
         ))}
       </div>
+      <FAQPage />
     </div>
   );
 }

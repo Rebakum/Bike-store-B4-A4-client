@@ -67,7 +67,7 @@ export default function ContactFormPreview() {
         <img
           src={img8}
           alt="bike-banner"
-          className="absolute top-0 left-0 z-0 object-cover w-full h-full rounded-lg"
+          className="absolute top-0 left-0 z-0 object-cover w-full h-full "
         />
         <div className="absolute top-0 left-0 z-10 flex flex-col items-start justify-start p-10 text-white rounded-lg">
           <nav className="flex items-center space-x-2 text-sm">
@@ -99,7 +99,7 @@ export default function ContactFormPreview() {
       </div>
 
       {/* Contact Info and Form */}
-      <div className="grid gap-10 mt-10 md:grid-cols-2">
+      <div className="grid gap-10 px-10 mt-10 md:grid-cols-2">
         {/* Left - Contact Info */}
         <div className="space-y-4 text-base rounded-md ">
           <h3 className="mb-10 text-4xl font-semibold">Contact Information</h3>

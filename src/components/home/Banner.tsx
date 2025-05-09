@@ -2,11 +2,17 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-import img1 from "@/assets/Banner-image/image/bike-banner-1.jpg";
+import {
+  default as img1,
+  default as img6,
+} from "@/assets/Banner-image/image/bike-banner-1.jpg";
 import img2 from "@/assets/Banner-image/image/bike-banner-2.jpg";
-import img3 from "@/assets/Banner-image/image/bike-banner-3.jpg";
 import img4 from "@/assets/Banner-image/image/bike-banner-4.jpg";
 import img5 from "@/assets/Banner-image/image/bike-banner-5.jpg";
+import {
+  default as img3,
+  default as img7,
+} from "@/assets/Banner-image/image/bike-banner-7.jpg";
 import SlideContent from "./SliderContent";
 
 export default function HeroSlider() {
@@ -74,5 +80,17 @@ const slideData = [
     title: "Ride in Supreme Style",
     subtitle: "Built for bold journeys and unforgettable moments.",
     img: img5,
+  },
+  {
+    h5: "Bold & Stylish",
+    title: "Ride in Supreme Style",
+    subtitle: "Built for bold journeys and unforgettable moments.",
+    img: img6,
+  },
+  {
+    h5: "Bold & Stylish",
+    title: "Ride in Supreme Style",
+    subtitle: "Built for bold journeys and unforgettable moments.",
+    img: img7,
   },
 ];

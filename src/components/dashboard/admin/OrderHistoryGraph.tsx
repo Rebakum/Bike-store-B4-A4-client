@@ -6,9 +6,9 @@ import {
   useVerifyOrderMutation,
 } from "@/redux/features/order/orderApi";
 
+import { FaHistory } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { FaHistory } from "react-icons/fa";
 const OrderHistoryGraph = () => {
   const { data, isLoading } = useAllOrdersQuery(undefined);
   const [verifyOrder] = useVerifyOrderMutation();
@@ -26,39 +26,39 @@ const OrderHistoryGraph = () => {
   if (isLoading) return <Loading />;
   console.log(data, "all order");
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg py-4">
-      <div className="py-6 flex gap-4 ">
-        <div className="text-3xl mt-1">
+    <div className="relative py-4 overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="flex gap-4 py-6 ">
+        <div className="mt-1 text-3xl">
           <FaHistory />
         </div>
         <h1 className="text-3xl font-bold ">Order History</h1>
       </div>
       {/* data table */}
-      <div className=" ">
-        <table className="w-fit text-sm text-left text-gray-500 rtl:text-right ">
-          <thead className="text-xs uppercase text-gray-50 bg-black ">
+      <div className="">
+        <table className="w-full text-sm text-center text-gray-500 rtl:text-right ">
+          <thead className="text-xs uppercase bg-black text-gray-50 ">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Id
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 user Email
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Total Price
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Transaction Id
               </th>
 
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Status
               </th>
 
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Action
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-3 py-3">
                 Details
               </th>
             </tr>
@@ -70,12 +70,12 @@ const OrderHistoryGraph = () => {
                   key={item?._id}
                   className="border-b border-gray-200 odd:bg-white even:bg-gray-50 0"
                 >
-                  <td className="px-6 py-4">{item?._id}</td>
-                  <td className="px-6 py-4">{item?.user?.email}</td>
-                  <td className="px-6 py-4">{item?.totalPrice}</td>
-                  <td className="px-6 py-4">{item?.transaction?.id}</td>
-                  <td className="px-6 py-4">{item?.status}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-3 py-4">{item?._id}</td>
+                  <td className="px-3 py-4">{item?.user?.email}</td>
+                  <td className="px-3 py-4">{item?.totalPrice}</td>
+                  <td className="px-3 py-4">{item?.transaction?.id}</td>
+                  <td className="px-3 py-4">{item?.status}</td>
+                  <td className="px-3 py-4">
                     {item?.status.toLowerCase() === "pending" ? (
                       <Button
                         className="w-[120px]"
@@ -89,7 +89,7 @@ const OrderHistoryGraph = () => {
                       </Button>
                     )}
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-3 py-4">
                     {/* <Button className="w-[120px]">Details</Button> */}
                     <OrderProductDetails orderItems={item} />
                   </td>

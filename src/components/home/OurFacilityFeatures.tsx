@@ -3,7 +3,7 @@ import OurFacilities from "./OurFacilities";
 
 const OurFacilityFeatures = () => {
   return (
-    <div className="container mx-auto mt-16 ">
+    <div className="container px-10 mx-auto mt-16">
       <div className="text-center ">
         <h5 className="text-center uppercase text-[#E8C999]">
           Your ride start here

@@ -21,7 +21,7 @@ const BlogList = () => {
 
   return (
     <section className=" bg-gray-50">
-      <div className="container mx-auto">
+      <div className="container px-10 mx-auto">
         <h2 className="my-10 text-4xl font-bold text-gray-900 text-start">
           Latest Blog Posts
         </h2>

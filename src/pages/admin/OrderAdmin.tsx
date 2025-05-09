@@ -5,9 +5,9 @@ import {
   useVerifyOrderMutation,
 } from "@/redux/features/order/orderApi";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { toast } from "sonner";
 import { OrderProductDetails } from "../OrderProductDetails";
-import { Helmet } from "react-helmet-async";
 
 const OrderAdmin = () => {
   const { data, isLoading } = useAllOrdersQuery(undefined);
@@ -38,39 +38,39 @@ const OrderAdmin = () => {
           <title>Manege Order - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <div className="flex justify-between items-center pr-1">
+      <div className="flex items-center justify-between pr-1">
         <input
-          className="p-2 my-3 border-black border-2 text-black rounded-md"
+          className="p-2 my-3 text-black border-2 border-black rounded-md"
           type="text"
           placeholder="Search id..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <table className="w-full  text-sm text-left rtl:text-right text-gray-500 ">
-        <thead className="text-xs text-gray-50 uppercase bg-black ">
+      <table className="w-full text-sm text-center text-gray-500 rtl:text-right ">
+        <thead className="text-xs uppercase bg-black text-gray-50 ">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Id
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               user Email
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Total Price
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Transaction Id
             </th>
 
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Status
             </th>
 
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Action
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-3 py-3">
               Details
             </th>
           </tr>
@@ -80,13 +80,13 @@ const OrderAdmin = () => {
             {filteredData?.map((item) => (
               <tr
                 key={item?._id}
-                className="odd:bg-white  even:bg-gray-50 0 border-b  border-gray-200"
+                className="border-b border-gray-200 odd:bg-white even:bg-gray-50 0"
               >
-                <td className="px-6 py-4">{item?._id}</td>
-                <td className="px-6 py-4">{item?.user?.email}</td>
-                <td className="px-6 py-4">{item?.totalPrice}</td>
-                <td className="px-6 py-4">{item?.transaction?.id}</td>
-                <td className="px-6 py-4">{item?.status}</td>
+                <td className="px-3 py-4">{item?._id}</td>
+                <td className="px-3 py-4">{item?.user?.email}</td>
+                <td className="px-3 py-4">{item?.totalPrice}</td>
+                <td className="px-3 py-4">{item?.transaction?.id}</td>
+                <td className="px-3 py-4">{item?.status}</td>
                 <td className="px-6 py-4">
                   {item?.status.toLowerCase() === "pending" ? (
                     <Button

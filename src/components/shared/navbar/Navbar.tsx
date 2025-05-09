@@ -63,7 +63,7 @@ const Navbar = () => {
   return (
     <div>
       <section
-        className={`fixed top-0 z-50 w-full py-4 px-4 lg:px-10 transition-all duration-300 ${
+        className={`fixed top-0 z-[50] w-full py-4 px-4 lg:px-10 transition-all duration-300 ${
           header ? "bgDark text-white shadow-sm" : "bg-white"
         }`}
       >

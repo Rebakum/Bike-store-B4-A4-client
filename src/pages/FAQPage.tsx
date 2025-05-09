@@ -36,9 +36,9 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gray-100">
-      <div className="container mx-auto">
-        <h1 className="mb-8 text-3xl font-bold text-center text-crimson-red">
+    <div className="">
+      <div className="container px-10 mx-auto">
+        <h1 className="text-3xl font-bold text-crimson-red">
           Frequently Asked Questions (FAQs)
         </h1>
         <div className="bg-white rounded-lg shadow-md">

@@ -41,16 +41,16 @@ const NewsletterTestimonial = () => {
   };
 
   return (
-    <section className="container relative w-full mx-auto my-20 ">
+    <section className="container relative w-full mx-auto my-16 ">
       {/* Helmet image - only visible on lg+ */}
       <img
         src={safetyHelment1}
         alt="Cyclist"
-        className="hidden lg:block absolute left-0 top-0 w-[300px] xl:w-[450px] z-[50] opacity-90"
+        className="hidden lg:block absolute  left-0 top-0 w-[300px] xl:w-[450px] z-[40] opacity-90"
       />
 
       {/* Newsletter Section */}
-      <div className="py-12 text-center bg-white rounded-lg shadow-md">
+      <div className="py-12 text-center bg-white ">
         <h4 className="mb-2 text-sm font-semibold tracking-wider text-orange-500 uppercase">
           Newsletter
         </h4>
@@ -91,7 +91,7 @@ const NewsletterTestimonial = () => {
       </div>
 
       {/* Testimonial Section - only on lg+ */}
-      <div className="relative hidden lg:flex items-center justify-center mt-16 bg-black h-[400px] rounded-lg overflow-hidden shadow-lg">
+      <div className="relative hidden lg:flex items-center justify-center mt-16 bg-black h-[400px] overflow-hidden shadow-lg">
         {/* Background Image */}
         <img
           src={img8}

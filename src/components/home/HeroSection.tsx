@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <section className="relative ">
-      <div className="container flex flex-col-reverse items-center justify-between px-4 py-20 mx-auto lg:flex-row">
+      <div className="container flex flex-col-reverse items-center justify-between gap-5 px-10 mx-auto lg:gap-10 lg:flex-row-reverse">
         {/* Left Content */}
         <div className="w-full space-y-6 text-center lg:w-1/2 lg:text-left">
           <h1 className="text-4xl font-extrabold leading-tight text-gray-900 md:text-6xl">
-            Ride Better, Ride Smarter
+            <span className="text-orange-500">Ride Better</span>, Ride Smarter
           </h1>
-          <p className="pb-10 text-lg text-gray-600">
+          <p className="pb-10 text-lg text-justify text-gray-600">
             Discover premium bikes, expert services, and the ultimate riding
             experience tailored for every cyclist.Premium bikes & expert service
             for a smoother, faster, and more confident ride—only at BikeStore.
@@ -28,7 +28,7 @@ const HeroSection = () => {
           <img
             src={heroImg}
             alt="Hero Bike"
-            className="object-cover w-full shadow-lg rounded-xl"
+            className="object-cover w-full g:w-1/2 rounded-xl"
           />
         </div>
       </div>

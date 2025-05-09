@@ -114,173 +114,180 @@ const AddProduct = () => {
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <button
-          onClick={() => setOpen(true)}
-          className="px-3 py-2 text-white rounded bg-primary-black hover:shadow-md "
-        >
-          <div className="flex gap-2 text-base font-semibold ">
-            <div className="mt-1 ">
-              <GrChapterAdd />
-            </div>
-            <div className="">Add Product</div>
-          </div>
-        </button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogTitle className="sr-only">Add Product</DialogTitle>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="w-full max-w-md mx-auto "
+    <section className="container mx-auto ">
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger className="p-10" asChild>
+          <button
+            onClick={() => setOpen(true)}
+            className="px-3 py-2 text-white rounded bg-primary-black hover:shadow-md "
           >
-            {/* Name */}
-            <CustomInputField
-              name="name"
-              label="Bike Name"
-              placeholder="Enter Product name"
-              type="text"
-              control={form.control}
-            />
-
-            {/* Image */}
-            <FormField
-              control={form.control}
-              name="image"
-              render={({ fieldState: { error } }) => (
-                <FormItem>
-                  <FormLabel>Product Image</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          handleImageChange(file); // Store the selected file in state
-                        }
-                      }}
-                    />
-                  </FormControl>
-                  {error && <p className="text-red-500">{error.message}</p>}
-                </FormItem>
-              )}
-            />
-
-            {/* Description */}
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Enter description" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            {/* Category (Select) */}
-            <FormField
-              control={form.control}
-              name="category"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category</FormLabel>
-                  <FormControl>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a Category" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectItem value="Mountain">Mountain</SelectItem>
-                          <SelectItem value="Road">Road</SelectItem>
-                          <SelectItem value="Hybrid">Hybrid</SelectItem>
-                          <SelectItem value="Electric">Electric</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            {/* Model */}
-            <CustomInputField
-              name="model"
-              label="Bike Model"
-              placeholder="Bike Model.."
-              type="text"
-              control={form.control}
-            />
-
-            {/* Brand */}
-            <CustomInputField
-              name="brand"
-              label="Brand Name"
-              placeholder="Enter Brand name"
-              type="text"
-              control={form.control}
-            />
-
-            <div className="flex items-center justify-between gap-4 ">
-              {/* Price */}
-
-              <FormField
+            <div className="flex gap-2 text-base font-semibold ">
+              <div className="mt-1 ">
+                <GrChapterAdd />
+              </div>
+              <div className="">Add Product</div>
+            </div>
+          </button>
+        </DialogTrigger>
+        <DialogContent className="py-16 ">
+          <DialogTitle className="p-5 sr-only">Add Product</DialogTitle>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="w-full h-[500px] mx-auto overflow-y-auto space-y-2"
+            >
+              {/* Name */}
+              <CustomInputField
+                name="name"
+                label="Bike Name"
+                placeholder="Enter Product name"
+                type="text"
                 control={form.control}
-                name="price"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Price</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        placeholder="Price"
-                        {...field}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
               />
 
-              {/* Quantity */}
+              {/* Image */}
               <FormField
                 control={form.control}
-                name="quantity"
-                render={({ field }) => (
+                name="image"
+                render={({ fieldState: { error } }) => (
                   <FormItem>
-                    <FormLabel>Quantity</FormLabel>
+                    <FormLabel>Product Image</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
-                        placeholder="Quantity"
-                        {...field}
-                        value={field.value ?? ""}
+                        type="file"
+                        accept="image/*"
                         onChange={(e) => {
-                          const value = parseFloat(e.target.value);
-                          field.onChange(isNaN(value) ? "" : value);
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            handleImageChange(file); // Store the selected file in state
+                          }
                         }}
                       />
                     </FormControl>
+                    {error && <p className="text-red-500">{error.message}</p>}
                   </FormItem>
                 )}
               />
-            </div>
 
-            <Button
-              type="submit"
-              className="w-full rounded bg-primary-black hover:shadow-md"
-            >
-              Add Product
-            </Button>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+              {/* Description */}
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Enter description" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Category (Select) */}
+              <FormField
+                control={form.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Category</FormLabel>
+                    <FormControl>
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a Category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectItem value="Mountain">Mountain</SelectItem>
+                            <SelectItem value="Road">Road</SelectItem>
+                            <SelectItem value="Hybrid">Hybrid</SelectItem>
+                            <SelectItem value="Electric">Electric</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              {/* Model */}
+              <CustomInputField
+                name="model"
+                label="Bike Model"
+                placeholder="Bike Model.."
+                type="text"
+                control={form.control}
+              />
+
+              {/* Brand */}
+              <CustomInputField
+                name="brand"
+                label="Brand Name"
+                placeholder="Enter Brand name"
+                type="text"
+                control={form.control}
+              />
+
+              <div className="flex items-center justify-between gap-4 ">
+                {/* Price */}
+
+                <FormField
+                  control={form.control}
+                  name="price"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Price</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          placeholder="Price"
+                          {...field}
+                          onChange={(e) =>
+                            field.onChange(Number(e.target.value))
+                          }
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+
+                {/* Quantity */}
+                <FormField
+                  control={form.control}
+                  name="quantity"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Quantity</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          placeholder="Quantity"
+                          {...field}
+                          value={field.value ?? ""}
+                          onChange={(e) => {
+                            const value = parseFloat(e.target.value);
+                            field.onChange(isNaN(value) ? "" : value);
+                          }}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full rounded bg-primary-black hover:shadow-md"
+              >
+                Add Product
+              </Button>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    </section>
   );
 };
 

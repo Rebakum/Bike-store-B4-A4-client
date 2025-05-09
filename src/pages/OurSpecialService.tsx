@@ -4,11 +4,11 @@ import slider2 from "@/assets/images/hero-image/slider2.jpg";
 
 const OurSpecialService = () => {
   return (
-    <section className="w-full px-4 py-10 bg-white md:px-8">
+    <section className="w-full py-10 bg-white md:px-8">
       <h1 className="pb-10 text-4xl">Try our special services</h1>
       <div className="grid items-start max-w-screen-xl gap-6 mx-auto md:grid-cols-4">
         {/* Customer Service Box */}
-        <div className="space-y-4">
+        <div className="p-5 space-y-10 border border-gray-300 rounded-lg hover:shadow-lg">
           <div className="flex flex-col items-center gap-3">
             <img
               src={avatar1}
@@ -16,7 +16,7 @@ const OurSpecialService = () => {
               className="w-20 h-20 rounded-full"
             />
             <div>
-              <h3 className="text-lg font-semibold text-center text-gray-800">
+              <h3 className="text-lg font-semibold text-center text-gray-800 ">
                 Customer Service
               </h3>
               <p className="text-sm text-center text-gray-600">
@@ -36,7 +36,7 @@ const OurSpecialService = () => {
         </div>
 
         {/* Product Support Box */}
-        <div className="space-y-4">
+        <div className="p-5 space-y-10 border border-gray-300 rounded-lg hover:shadow-lg">
           <div className="flex flex-col items-center gap-3">
             <img
               src={avatar2}
@@ -44,7 +44,7 @@ const OurSpecialService = () => {
               className="w-20 h-20 rounded-full"
             />
             <div>
-              <h3 className="text-lg font-semibold text-center text-gray-800">
+              <h3 className="text-lg font-semibold text-center text-gray-800 ">
                 Product Support
               </h3>
               <p className="text-sm text-center text-gray-600">

@@ -5,14 +5,14 @@ import Navber from "../shared/navbar/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen scroll-smooth">
+    <div className="flex flex-col min-h-screen overflow-hidden scroll-smooth">
       <ScrollToTop />
       {/* navigetions area */}
       <div className="">
         <Navber />
       </div>
       {/* Main content area*/}
-      <div className="flex-grow px-5 xl:px-10">
+      <div className="flex-grow ">
         <Outlet />
       </div>
       {/* footer area */}
