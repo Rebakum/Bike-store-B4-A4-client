@@ -32,7 +32,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="container px-4 py-8 mx-auto">
+    <div className="container px-10 py-8 mx-auto">
       <div className="">
         <Helmet>
           <title>{product.name} - Bike Shop || Online Delivary</title>
@@ -59,7 +59,7 @@ const ProductDetails = () => {
           </div>
 
           {/* e - Details */}
-          <div className="flex flex-col gap-2 justify-center p-6">
+          <div className="flex flex-col justify-center gap-2 p-6">
             <h1 className="text-2xl font-bold text-gray-800 md:text-3xl">
               {product.name}
             </h1>
@@ -72,10 +72,10 @@ const ProductDetails = () => {
                 {product.price}
               </span>
             </p>
-            <Button className="flex w-fit my-4 text-sm bg-green-500 hover:bg-green-500 cursor-default">
+            <Button className="flex my-4 text-sm bg-green-500 cursor-default w-fit hover:bg-green-500">
               Quantity: <span className="text-sm">{product?.quantity}</span>{" "}
             </Button>
-            <p className=" text-gray-700">{product.description}</p>
+            <p className="text-gray-700 ">{product.description}</p>
 
             {/* Buttons */}
             {product?.inStock && (
