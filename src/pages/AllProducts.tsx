@@ -100,7 +100,7 @@ export default function AllProducts() {
           </div>
         </div>
 
-        <div className="flex items-start justify-between px-10">
+        <div className="flex items-start justify-between gap-3 px-10 py-10 lg:gap-10">
           {/* Filters Section */}
           <div className="grid grid-cols-1 gap-4 mt-8 lg:gap-6 ">
             <input
@@ -136,21 +136,21 @@ export default function AllProducts() {
               <option value="Out of Stock">Out of Stock</option>
             </select>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col items-center gap-2">
               <input
                 type="number"
                 name="minPrice"
                 placeholder="Min Price"
-                className="w-24 p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-md"
                 value={filters.minPrice}
                 onChange={handleFilterChange}
               />
-              <span> - </span>
+
               <input
                 type="number"
                 name="maxPrice"
                 placeholder="Max Price"
-                className="w-24 p-2 border border-gray-300 rounded-md"
+                className="w-full p-2 border border-gray-300 rounded-md"
                 value={filters.maxPrice}
                 onChange={handleFilterChange}
               />
@@ -158,7 +158,7 @@ export default function AllProducts() {
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 gap-12 py-20 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:px-8">
+          <div className="grid grid-cols-1 gap-5 py-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ">
             {data?.data?.map((product) => (
               <div
                 key={product?._id}
