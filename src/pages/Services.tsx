@@ -1,7 +1,7 @@
-import bikeimg17 from "@/assets/image/bike-17.jpg";
-import bikeimg18 from "@/assets/image/bike-18.jpg";
-import bikeimg20 from "@/assets/image/bike-20.jpg";
-import bikeimg21 from "@/assets/image/bike-21.jpg";
+import serviceImage1 from "@/assets/images/servicesImage/serviceImage-1.jpg";
+import serviceImage3 from "@/assets/images/servicesImage/serviceImage-2.jpeg";
+import serviceImage4 from "@/assets/images/servicesImage/serviceImage-3.jpg";
+import serviceImage2 from "@/assets/images/servicesImage/serviceImage-6.jpg";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import img8 from "../assets/Banner-image/image/bike- banner.8.jpg";
@@ -79,24 +79,24 @@ const services = [
     title: "Custom Bike Design",
     description:
       "Get a personalized bike that reflects your personality. Choose from unique designs, parts, and colors.",
-    image: bikeimg20,
+    image: serviceImage1,
   },
   {
     title: "Repair & Maintenance",
     description:
       "Keep your bike in top condition with expert repair and maintenance services by certified technicians.",
-    image: bikeimg21,
+    image: serviceImage2,
   },
   {
     title: "Performance Upgrades",
     description:
       "Enhance your bike's performance with premium parts and accessories for speed and endurance.",
-    image: bikeimg18,
+    image: serviceImage3,
   },
   {
     title: "Performance Upgrades",
     description:
       "Enhance your bike's performance with premium parts and accessories for speed and endurance.",
-    image: bikeimg17,
+    image: serviceImage4,
   },
 ];
