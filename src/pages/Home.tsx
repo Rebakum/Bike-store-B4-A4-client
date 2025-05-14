@@ -27,7 +27,7 @@ const Home = () => {
 
         <div className="container mx-auto my-16 ">
           <div className="text-center ">
-            <h5 className="text-center uppercase text-[#E8C999]">
+            <h5 className="text-center uppercase text-orange-500">
               Check it out
             </h5>
             <h2 className="text-4xl font-extrabold text-gray-900 md:text-5xl">

@@ -1,5 +1,4 @@
 import { MonthlySalesGraph } from "@/components/dashboard/admin/MonthlySalesGraph";
-import OrderHistoryGraph from "@/components/dashboard/admin/OrderHistoryGraph";
 import { OrderStatusChart } from "@/components/dashboard/admin/OrderStatusChart";
 import { VisitorGraph } from "@/components/dashboard/admin/VisitorGraph";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,7 +22,7 @@ const AdminDashboardIndex = () => {
     useRevenueQuery(undefined);
 
   return (
-    <div className="">
+    <div className="px-10">
       {/* title */}
       <div className="">
         <Helmet>
@@ -33,7 +32,7 @@ const AdminDashboardIndex = () => {
       <h1 className="mb-2 text-2xl font-bold ">Dashboard Overview</h1>
 
       {/* dashboard Status */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 !text-base">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 !text-base">
         {productLoading || orderLoading || revenueLoading || userLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <Skeleton key={index} className="w-full h-32 rounded-lg" />
@@ -64,10 +63,6 @@ const AdminDashboardIndex = () => {
         )}
       </div>
 
-      {/* order section */}
-      <div>
-        <OrderHistoryGraph />
-      </div>
       {/* graph */}
 
       <div className="">
@@ -100,13 +95,13 @@ const StatsCard = ({
   value: string | number;
 }) => {
   return (
-    <Card className="flex flex-col items-center p-4 py-5 text-center border shadow-md rounded-xl">
-      <div className="mb-2 text-4xl text-orange-600">{icon}</div>
+    <Card className="flex flex-col items-center p-4 py-5 text-center border shadow-md hover:bg-orange-100 rounded-xl">
+      <div className="mb-2 text-4xl text-orange-600 ">{icon}</div>
       <CardHeader>
-        <CardTitle className="text-3xl font-semibold">{title}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{title}</CardTitle>
       </CardHeader>
       {/* <CardContent> */}
-      <p className="text-2xl font-bold">{value}</p>
+      <p className="text-xl font-bold">{value}</p>
       {/* </CardContent> */}
     </Card>
   );

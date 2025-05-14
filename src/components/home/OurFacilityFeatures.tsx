@@ -5,7 +5,7 @@ const OurFacilityFeatures = () => {
   return (
     <div className="container px-10 mx-auto mt-16">
       <div className="text-center ">
-        <h5 className="text-center uppercase text-[#E8C999]">
+        <h5 className="text-center uppercase text-orange-500">
           Your ride start here
         </h5>
         <h2 className="text-4xl font-extrabold text-gray-900 md:text-5xl">

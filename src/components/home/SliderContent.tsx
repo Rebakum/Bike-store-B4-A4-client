@@ -23,7 +23,7 @@ const SlideContent: React.FC<SlideContentProps> = ({
         className="object-cover w-full h-full opacity-60"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-        <h5 className="text-[#E8C999] font-medium md:text-lg">{h5}</h5>
+        <h5 className="text-orange-500 font-medium md:text-lg">{h5}</h5>
         <h1 className="text-4xl font-bold md:text-5xl animate-fadeIn">
           {title}
         </h1>

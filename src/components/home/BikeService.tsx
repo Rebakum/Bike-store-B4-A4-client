@@ -6,7 +6,7 @@ const BikeService = () => {
   return (
     <section className="container py-16 mx-auto bg-white">
       <div className="px-10 ">
-        <h5 className="text-center text-[#E8C999]">maintenance & repairs</h5>
+        <h5 className="text-center text-orange-500">maintenance & repairs</h5>
         <h2 className="text-3xl font-extrabold leading-tight text-center text-gray-900 md:text-5xl">
           Professional Bike Services
         </h2>

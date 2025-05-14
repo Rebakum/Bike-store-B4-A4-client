@@ -27,7 +27,7 @@ export default function BikeDesign() {
 
         {/* Offer Section */}
         <div className="absolute z-50 right-10 bottom-28 w-96">
-          <p className="mt-1 text-3xl font-semibold text-[#E8C999]">
+          <p className="mt-1 text-3xl font-semibold text-orange-500">
             35% Discount
           </p>
           <h2 className="mb-4 text-3xl font-bold uppercase">
