@@ -29,7 +29,7 @@ const AdminDashboardIndex = () => {
           <title>DashBoard - Bike Shop || Online Delivary</title>
         </Helmet>
       </div>
-      <h1 className="mb-2 text-2xl font-bold ">Dashboard Overview</h1>
+      <h1 className="pt-5 mb-10 text-2xl font-bold ">Dashboard Overview</h1>
 
       {/* dashboard Status */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 !text-base">
@@ -67,7 +67,7 @@ const AdminDashboardIndex = () => {
 
       <div className="">
         {/* title */}
-        <h2 className="py-8 text-3xl font-bold capitalize">pogress report</h2>
+        <h2 className="py-10 text-3xl font-bold capitalize">pogress report</h2>
         {/* content */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <VisitorGraph />
